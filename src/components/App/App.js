@@ -17,7 +17,6 @@ function App() {
         <Route path='/addmovie'>
           <AddMovie />
         </Route>
-        {/* Add Movie page */}
       </Router>
     </div>
   );
