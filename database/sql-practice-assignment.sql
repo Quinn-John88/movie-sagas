@@ -25,15 +25,15 @@ Example Result:
 | Disaster      | 0             |
 ---------------------------------
 
-
-
 -- 3. Add the genre "Superhero" to "Star Wars".
 
-
+INSERT INTO movie_genres (movie_id, genre_id)
+VALUES (10,13);
 
 -- 4. Remove the "Comedy" genre from "Titanic"
 
-
+DELETE FROM movies_genres
+WHERE (movies_genres.movie_id = 13) AND (movies_genres.genre_id=4);
 
 -- Stretch
 
