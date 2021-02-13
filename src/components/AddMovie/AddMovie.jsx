@@ -1,27 +1,56 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
+import { useState} from "react";
+
 function AddMovie() {
+    let movie = useSelector(store => store.genres);
+    const [genre, setGenre] = useState({ genre: "" });
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    function handleChange(event) {
+        setGenre({ genre: event.target.value });
+    }
+
+    function handleReturn() {
+        history.push('/')
+    }
+
+    function dispatchGenre(event, id) {
+        dispatch({
+            type: "SET_GENRES",
+            payload: [genre, id],
+        });
+        setGenre({ genre: "" });
+    }
+
     return (
         <>
             <form>
-                <input></input>
-                <input></input>
-                <textarea></textarea>
-                <select>
-                    <option>Adventure</option>
-                    <option>Animated</option>
-                    <option>Biographical</option>
-                    <option>Comedy</option>
-                    <option>Disaster</option>
-                    <option>Drama</option>
-                    <option>Epic</option>
-                    <option>Fantasy</option>
-                    <option>Musical</option>
-                    <option>Romantic</option>
-                    <option>Science Fiction</option>
-                    <option>Space-Opera</option>
-                    <option>Superhero</option>
+                <input placeholder='Title' />
+                <input placeholder='Image URL' />
+                <textarea placeholder='Description' />
+                <select
+                    onChange={(event) => handleChange(event)}
+                    id="genre"
+                    name="genre"
+                >
+                    <option value={movie.genres}>Adventure</option>
+                    <option value={movie.genres}>Animated</option>
+                    <option value={movie.genres}>Biographical</option>
+                    <option value={movie.genres}>Comedy</option>
+                    <option value={movie.genres}>Disaster</option>
+                    <option value={movie.genres}>Drama</option>
+                    <option value={movie.genres}>Epic</option>
+                    <option value={movie.genres}>Fantasy</option>
+                    <option value={movie.genres}>Musical</option>
+                    <option value={movie.genres}>Romantic</option>
+                    <option value={movie.genres}>Science Fiction</option>
+                    <option value={movie.genres}>Space-Opera</option>
+                    <option value={movie.genres}>Superhero</option>
                 </select>
-                <button>Save</button>
-                <button>Cancel</button>
+                <button onClick={(event) => dispatchGenre(event, id)}>Save</button>
+                <button onClick={handleReturn}>Cancel</button>
             </form>
         </>
     )

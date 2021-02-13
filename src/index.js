@@ -47,9 +47,7 @@ const movies = (state = [], action) => {
 const movieDetailsReducer = (state= {}, action) => {
     if (action.type === 'SET_MOVIE_DETAILS') {
         return {...action.payload}
-    } else if (action.type === 'CLEAR_MOVIE_DETIALS') {
-        return {};
-    }
+    } 
     return state;
 }
 
