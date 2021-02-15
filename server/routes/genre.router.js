@@ -8,7 +8,7 @@ router.get('/details/:id', (req, res) => {
   JOIN movies_genres as mg ON mg."genre_id" = g."id"
   JOIN movies as m ON  m."id" = mg."movie_id"
   WHERE m.id= $1 ;`
-  pool.query(sqlText, [id]).then((response) => {
+  pool.query(sqlText, id).then((response) => {
     console.log(response.rows)
     res.send(response.rows)
   }).catch((err) => {
