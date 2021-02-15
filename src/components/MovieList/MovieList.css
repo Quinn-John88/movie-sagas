@@ -1,4 +1,12 @@
+.movieCard {
+    display : inline-block;
+    margin: 10px;
+    border: 1px solid black;
+}
 .movies {
-    display : flex;
-    flex-wrap: wrap;
+    display: flex;
+    flex-wrap:wrap;
+}
+.moviePaper {
+    margin: 10px;
 }
