@@ -64,7 +64,7 @@ function AddMovie() {
         <>
             <form onSubmit={handleSubmit} className={classes.root}>
                 <TextField className={classes.inputs} onChange={(event) => setNewMovie({ ...newMovie, title: event.target.value })} required value={newMovie.title} placeholder='Title' id='outlined-basic' variant='outlined' />
-                <TextField className={classes.inputs} required value={newMovie.poster} placeholder='Image URL' onChange={(event) => setNewMovie({ ...newMovie, poster: event.target.value })} id='outlined-basic' variant='outlined' />                
+                <TextField tyoe="url" className={classes.inputs} required value={newMovie.poster} placeholder='Image URL' onChange={(event) => setNewMovie({ ...newMovie, poster: event.target.value })} id='outlined-basic' variant='outlined' />                
                 <TextField
                     className={classes.inputs}
                     required
